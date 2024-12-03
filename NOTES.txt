@@ -21,3 +21,73 @@ errorMSG(arg) {
 }
 ERROR_CODE ec = doSomething();
 std::cout << errorMSG[ec];
+
+
+
+
+
+
+
+CHATGPT GAVE ME THIS AS A CODE EXAMPLE
+USE AS GENERAL OUTLINE
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <webp/decode.h>
+#include "stb_image_write.h" // Include stb_image_write.h for PNG output
+
+bool convertWebPtoPNG(const std::string& inputFile, const std::string& outputFile) {
+    // Open the input file
+    std::ifstream webpFile(inputFile, std::ios::binary | std::ios::ate);
+    if (!webpFile.is_open()) {
+        std::cerr << "Error: Could not open input file: " << inputFile << "\n";
+        return false;
+    }
+
+    // Read file into buffer
+    std::streamsize fileSize = webpFile.tellg();
+    webpFile.seekg(0, std::ios::beg);
+    std::vector<uint8_t> fileBuffer(fileSize);
+    if (!webpFile.read(reinterpret_cast<char*>(fileBuffer.data()), fileSize)) {
+        std::cerr << "Error: Could not read input file: " << inputFile << "\n";
+        return false;
+    }
+
+    // Decode WebP image
+    int width, height;
+    uint8_t* rgbaData = WebPDecodeRGBA(fileBuffer.data(), fileSize, &width, &height);
+    if (!rgbaData) {
+        std::cerr << "Error: Failed to decode WebP image\n";
+        return false;
+    }
+
+    // Save as PNG
+    if (!stbi_write_png(outputFile.c_str(), width, height, 4, rgbaData, width * 4)) {
+        std::cerr << "Error: Failed to write PNG file: " << outputFile << "\n";
+        WebPFree(rgbaData); // Free the decoded image
+        return false;
+    }
+
+    std::cout << "Converted: " << inputFile << " -> " << outputFile << "\n";
+
+    // Free the decoded image
+    WebPFree(rgbaData);
+    return true;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " <input.webp> <output.png>\n";
+        return 1;
+    }
+
+    std::string inputFile = argv[1];
+    std::string outputFile = argv[2];
+
+    if (!convertWebPtoPNG(inputFile, outputFile)) {
+        return 1; // Exit with error
+    }
+
+    return 0; // Success
+}
