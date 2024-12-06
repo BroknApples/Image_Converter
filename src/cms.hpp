@@ -5,16 +5,21 @@
 #ifndef CMS_HPP
 #define CMS_HPP
 
-#include <array>
-#include <memory>
+#include <vector>
+#include <filesystem>
 
-#include "conversion_methods/conversion-methods.hpp"
+#include "converter.hpp"
 
 class CMS {
  private:
-  std::array<std::unique_ptr<Converter>, CONVERSION_COUNT> conversion_methods_;
- public:
+  std::vector<Converter> conversion_methods_;
+
+  // Methods
   void prompt();
+  void checkValidFile();
+  void listConversionMethods();
+
+ public:
   void run();
 };
 

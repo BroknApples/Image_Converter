@@ -1,7 +1,7 @@
 #include "cms.hpp"
 
 int main() {
-  CMS cms;
+  CMS converter;
 
   return 0;
 }

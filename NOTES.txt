@@ -1,33 +1,3 @@
-Look into making it so that you can simply initialize a class of PNG and WEBP
-then hold which methods are converted into what using some variable.
-Using this, have some code like:
-bool convert(arg1, arg1) {
-
-}
-
-
-CAN USE ENUMS AS ERROR CODE
-enum ERROR_CODE {
-  SUCCESS,
-  CONVERSION_ERROR,
-  RETURN_ERROR
-}
-
-errorMSG(arg) {
-  switch(arg) {
-    case "...":
-    etc.
-  }
-}
-ERROR_CODE ec = doSomething();
-std::cout << errorMSG[ec];
-
-
-
-
-
-
-
 CHATGPT GAVE ME THIS AS A CODE EXAMPLE
 USE AS GENERAL OUTLINE
 
