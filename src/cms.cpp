@@ -14,8 +14,8 @@ void CMS::prompt() {
 /**
  * 
  */
-bool CMS::checkValidFile(const auto& std::filesystem::path file) {
-  std::string extension == file.extension().string();
+bool CMS::checkValidFile(const fs::path& file) {
+  std::string extension = file.extension().string();
   ConversionMethods filetype = convertToKey(extension);
 
   for (const auto& pair : filetype) {

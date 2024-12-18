@@ -1,0 +1,10 @@
+^C:\USERS\TRENT\ONEDRIVE\CODING_PROJECTS\IMAGE_CONVERTER\BUILD\CMAKEFILES\B67490A6A0B2B4D25EC0DE91BDC00725\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Trent/OneDrive/Coding_Projects/Image_Converter -BC:/Users/Trent/OneDrive/Coding_Projects/Image_Converter/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Trent/OneDrive/Coding_Projects/Image_Converter/build/img_convert.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

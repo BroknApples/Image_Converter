@@ -1,0 +1,3 @@
+C:/Users/Trent/OneDrive/Coding_Projects/Image_Converter/build/CMakeFiles/img_convert.dir
+C:/Users/Trent/OneDrive/Coding_Projects/Image_Converter/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Trent/OneDrive/Coding_Projects/Image_Converter/build/CMakeFiles/ZERO_CHECK.dir

@@ -10,13 +10,15 @@
 
 #include "converter.hpp"
 
+namespace fs = std::filesystem;
+
 class CMS {
  private:
   std::vector<Converter> conversion_methods_;
 
   // Methods
   void prompt();
-  void checkValidFile();
+  bool checkValidFile(const fs::path& file);
   void listConversionMethods();
 
  public:

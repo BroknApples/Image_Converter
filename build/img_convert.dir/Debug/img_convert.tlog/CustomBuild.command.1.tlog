@@ -1,0 +1,10 @@
+^C:\USERS\TRENT\ONEDRIVE\CODING_PROJECTS\IMAGE_CONVERTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Trent/OneDrive/Coding_Projects/Image_Converter -BC:/Users/Trent/OneDrive/Coding_Projects/Image_Converter/build --check-stamp-file C:/Users/Trent/OneDrive/Coding_Projects/Image_Converter/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
